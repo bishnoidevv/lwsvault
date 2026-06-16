@@ -17,7 +17,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 480px; /* Perfectly sizes for mobile viewing similar to screenshots */
+    max-width: 480px; 
     background-color: #050a0e;
     padding: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
@@ -34,17 +34,55 @@ body {
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
-.lowes-logo {
+/* AUTHENTIC SHAPE LOWE'S LOGO RECREATION */
+.lowes-house-shape {
     background-color: #004b93;
     color: white;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1px 1px 3px 3px;
+}
+
+/* Constructs the roof angle structure matching the screenshot logo */
+.lowes-house-shape::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 29px solid transparent;
+    border-right: 29px solid transparent;
+    border-bottom: 10px solid #004b93;
+}
+
+.lowes-text {
     font-weight: 900;
-    padding: 3px 8px;
-    border-radius: 3px;
     font-style: italic;
-    font-size: 14px;
+    font-size: 11px;
+    letter-spacing: -0.2px;
+    z-index: 2;
+    margin-top: -2px;
+}
+
+/* Mini logo variances for card and footer */
+.lowes-house-shape.mini {
+    transform: scale(0.75);
+    transform-origin: left center;
+}
+
+.lowes-house-shape.grayscale {
+    background-color: #42505c;
+}
+.lowes-house-shape.grayscale::before {
+    border-bottom-color: #42505c;
 }
 
 .rewards-title {
@@ -94,6 +132,11 @@ body {
     margin-bottom: 30px;
 }
 
+.card-logo-wrap {
+    height: 25px;
+    margin-top: -5px;
+}
+
 .card-abstract-circle {
     position: absolute;
     right: -40px;
@@ -102,17 +145,6 @@ body {
     height: 180px;
     border: 15px solid rgba(255,255,255,0.04);
     border-radius: 50%;
-}
-
-.gift-card-visual .card-logo {
-    background: #fff;
-    color: #004b93;
-    display: inline-block;
-    font-style: italic;
-    font-weight: 900;
-    padding: 2px 6px;
-    font-size: 11px;
-    border-radius: 2px;
 }
 
 .card-tag {
@@ -132,7 +164,7 @@ body {
 .card-amount {
     font-size: 56px;
     font-weight: 800;
-    margin-top: 25px;
+    margin-top: 20px;
     line-height: 1;
 }
 
@@ -162,9 +194,12 @@ body {
     padding: 0 15px;
 }
 
-/* Call to Actions & Buttons */
+/* FIXED CENTER-ALIGNED CTA BUTTONS */
 .cta-button {
-    display: block;
+    display: flex;            /* Switched to flex to fix centering issue */
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    text-align: center;
     background: linear-gradient(180deg, #1e7bf2 0%, #1059bc 100%);
     color: white;
     text-decoration: none;
@@ -174,6 +209,12 @@ body {
     font-size: 14px;
     box-shadow: 0 4px 15px rgba(30, 123, 242, 0.3);
     transition: transform 0.2s ease;
+    width: 100%;
+}
+
+.cta-button span {
+    display: inline-block;
+    width: 100%;
 }
 
 .cta-button:active {
@@ -219,7 +260,6 @@ body {
     padding-left: 15px;
 }
 
-/* Vertical connector line design */
 .steps-timeline::before {
     content: '';
     position: absolute;
@@ -273,7 +313,7 @@ body {
     line-height: 1.4;
 }
 
-/* Testimonials / Grid */
+/* Testimonials / Grid with swipe support */
 .testimonials-section {
     margin-bottom: 30px;
 }
@@ -281,7 +321,7 @@ body {
 .testimonials-grid {
     display: flex;
     gap: 12px;
-    overflow-x: auto; /* Handles horizontal scrolling like view 2 */
+    overflow-x: auto; 
     padding-bottom: 25px;
     scrollbar-width: none;
 }
@@ -295,7 +335,7 @@ body {
     border: 1px solid #141d26;
     padding: 20px;
     border-radius: 16px;
-    min-width: 280px;
+    min-width: 290px;
     flex: 1;
 }
 
@@ -309,14 +349,22 @@ body {
 .avatar {
     width: 36px;
     height: 36px;
-    background-color: #1e7bf2;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 700;
     font-size: 14px;
+    color: white;
 }
+
+/* Unique variation colors for modern profiles */
+.blue-av { background-color: #1e7bf2; }
+.light-blue-av { background-color: #00a8ff; }
+.purple-av { background-color: #9c27b0; }
+.orange-av { background-color: #ff9800; }
+.green-av { background-color: #4caf50; }
+.pink-av { background-color: #e91e63; }
 
 .user-info h4 {
     font-size: 14px;
@@ -356,10 +404,6 @@ body {
 
 .bottom-logo {
     margin-bottom: 15px;
-}
-
-.text-logo {
-    font-size: 12px;
 }
 
 .footer-links {
